@@ -1,4 +1,6 @@
 "use strict"
+var singleGamesStarted = 0;
+var duoGamesStarted = 0;
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
@@ -267,6 +269,10 @@ function Pong (ctx) {
 	};
 	
 	this.startpong1 = function () {
+		if (ga) {
+			singleGamesStarted++;
+			ga("send", "event", "pong", "startpong1", "start", singleGamesStarted);
+		}
 		state = 1;
 		console.log(state);
 		player1 = new Balkje(20, 38, 40);
@@ -278,6 +284,10 @@ function Pong (ctx) {
 	};
 	
 	this.startpong2 = function () {
+		if (ga) {
+			duoGamesStarted++;
+			ga("send", "event", "pong", "startpong2", "start", duoGamesStarted);
+		}
 		state = 2;
 		player1 = new Balkje(20, 87, 83);
 		player2 = new Balkje(770, 79, 76);
