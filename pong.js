@@ -97,8 +97,14 @@ function Pong (ctx) {
 		this.keydown = function (event) {
 			if (event.keyCode === upkeynumber) {
 				upkey = true;
+				if (state && !paused) {
+					event.preventDefault(); //Don't scroll when game is playing
+				}
 			} else if (event.keyCode === downkeynumber) {
 				downkey = true;
+				if (state && !paused) {
+					event.preventDefault(); //Don't scroll when game is playing
+				}
 			}
 		}
 		this.keyup = function (event) {

@@ -2,12 +2,38 @@
 	<head>
 		<title>Pong</title>
 		<script src="polyfill.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Orbitron:700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Arapey' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="projects.css" />
 	</head>
 	<body style="min-height:100%; margin:0; padding:0; background:rgb(44, 44, 51);">
-		<center style="min-height:100%;">
-			<div style="height:100%; display:inline-block; vertical-align:middle;"></div>
-			<canvas id="canvas" width="800" height="400" style="display:inline-block; vertical-align:middle;"></canvas>
+		<center style="margin:50px;">
+			<canvas id="canvas" width="800" height="400"></canvas>
 		</center>
+		<div class="projects">
+			<div class="subtitle">Check out some other projects:</div>
+			<a href="/simplelogic/" class="project" title="NeuralCar">
+				<img src="screens/simplelogic.png" alt="SimpleLogic"/>
+				<div class="label">Name:</div>
+				SimpleLogic (Open Source)
+				<div class="label">Description:</div>
+				Logic gates simulation in the browser with the ability to share modules. It's also fairly easy to create new nodes.
+			</a>
+			<a href="/neuralcar/" class="project" title="NeuralCar">
+				<img src="screens/neuralcar.png" alt="NeuralCar"/>
+				<div class="label">Name:</div>
+				NeuralCar 2.0 (Open Source)
+				<div class="label">Description:</div>
+				Second version of the car simulation. Each car has a neural network that controls it. Those then go trough generations of evolution till they can drive themself.
+			</a>
+			<a href="http://webreview.squarific.com" class="project" title="WebReviewPlugin">
+				<img src="screens/webreviewplugin.png" alt="Web Review Plugin"/>
+				<div class="label">Name:</div>
+				WebReviewPlugin
+				<div class="label">Description:</div>
+				A chrome plugin that easily lets you search reviews for websites and review websites yourself. 
+			</a>
+		</div>
 		<script src="pong.js"></script>
 	</body>
 </html>
