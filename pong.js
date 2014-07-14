@@ -1,5 +1,6 @@
 "use strict"
 var singleGamesStarted = 0;
+var ga = ga || function () {};
 var duoGamesStarted = 0;
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
@@ -17,10 +18,12 @@ function Pong (ctx) {
 		var pressedKey = event.keyCode || event.which || event.charCode;
 		console.log(pressedKey);
 		if (!this.levens) {
-			if (pressedKey === 49) {
+			if (pressedKey === 49 || pressedKey === 38) {
 				this.startpong1();
-			} else if (pressedKey === 50) {
+				event.preventDefault();
+			} else if (pressedKey === 50 || pressedKey === 233) {
 				this.startpong2();
+				event.preventDefault();
 			} else if (pressedKey === 109) {
 				state = 0;
 			}
@@ -122,7 +125,7 @@ function Pong (ctx) {
 	
 	function Bol (xVelocity, yVelocity) {
 		this.x = 400;
-		this.y = 200;
+		this.y = 75 + Math.random() * 250;
 		this.xVelocity = xVelocity;
 		this.yVelocity = yVelocity;
 		this.colour = 'rgb(255 ,255 ,255)';
@@ -173,6 +176,9 @@ function Pong (ctx) {
 					}
 					if (state === 2) {
 						pong.score1++
+					}
+					if (player1.height < 30) {
+						player1.height = 30;
 					}
 				}
 			}
@@ -274,7 +280,6 @@ function Pong (ctx) {
 			ga("send", "event", "pong", "startpong1", "start", singleGamesStarted);
 		}
 		state = 1;
-		console.log(state);
 		player1 = new Balkje(20, 38, 40);
 		bol = new Bol(0.2, 0.2);
 		bol2 = new Bol(-0.2, -0.2);
