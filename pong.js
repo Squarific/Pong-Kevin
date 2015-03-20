@@ -238,7 +238,7 @@ function Pong (ctx) {
 				ctx.fillStyle = 'white';
 				ctx.fillText('You lose', 310, 200);
 				ctx.fillText('Press \'1\' to try again', 265, 230);
-				ctx.fillText('High score: 68', 285, 260);
+				ctx.fillText('High score: 92', 285, 260);
 			}
 		}
 		if (state === 2)  {
